@@ -1,4 +1,6 @@
 # Google Sign-in Demo
+A demo of how to integrate Google Sign-In into your web app.  
+
 Reference: https://developers.google.com/identity/sign-in/web/sign-in  
 
 ## Run this demo
