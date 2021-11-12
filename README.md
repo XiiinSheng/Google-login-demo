@@ -1,5 +1,5 @@
 # Google Sign-in Demo
-Step-by-step tutorial: https://developers.google.com/identity/sign-in/web/sign-in  
+Reference: https://developers.google.com/identity/sign-in/web/sign-in  
 
 ## Run this demo
 Run on localhost:5500. 
