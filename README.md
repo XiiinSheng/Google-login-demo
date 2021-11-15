@@ -8,7 +8,7 @@ Run on localhost:5500.
 
 ## Steps to use Google sign-in
 1. Create credentials.  
-   1. Create Google Cloud Project.
+   1. Create Google Cloud Project.  
       Google project: https://console.cloud.google.com/apis/dashboard
    2. in Credentials, create new OAuth consent.  
       Necessary OAuth consent scope: user.profile  
@@ -16,7 +16,7 @@ Run on localhost:5500.
       new user limit: 10000 a day  
       Scope: 
       * internal: only allow users in the same organization. No need verification. In our case, only ucsd.edu emails are able to sign in. 
-      * external: everyone can sign in. Need verification. 
+      * external: everyone can sign in. Might need verification if the app wants to access user's sensitive info, have more than 10 domain, etc. 
    3. Get new OAuth Client ID.  
       Authorized javascript origins: http://localhost:5000  
       Authorized redirect URIs: https://tolocalhost.com   
@@ -27,6 +27,18 @@ Run on localhost:5500.
 5. Add the js function for sign in. Now the user should be able to log in, and his/her info will be passed to js. 
 6. Add the sign-out button and corresponding function in js. Now the user should be able to log out.   
     In this example, the sign-out button is just an `<a>` tag and could be changed to anything else. 
+
+## About User Scope
+Reference: https://support.google.com/cloud/answer/10311615#verification-status  
+
+Google verifies projects configured for a user type of External and a publishing status of In production if they meet one or more of the OAuth verification criteria:
+
+* You want to display an icon or display name for your project on the OAuth consent screen.
+* Your project's OAuth clients request authorization of any sensitive or restricted scopes.
+* The number of authorized domains for your project exceeds the domain count limit.
+* There are changes to your project's OAuth consent screen configuration after a previous published, verified configuration.
+
+This demo doesn't meet any of these criteria, so no verification is necessary. 
 
 ## Debugging
 ### 400 Invalid request
